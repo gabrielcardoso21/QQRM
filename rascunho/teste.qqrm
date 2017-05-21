@@ -1,0 +1,65 @@
+<< Nome >> : Classe -> definição de classe Nome que herda de Classe
+
+<{}> -> equivalente a private
+<[]> -> equivalente a protected
+<()> -> equivalente a public
+
+<funcao> : !(param1 = 0), !(param2 = '') -> definição de função com 
+lista de parâmetros e seus valores iniciais 
+
+!(var = 0) -> declaração de variável (todas precisam de um valor 
+inicial para determinar seu tipo)
+
+!(valor) -> retorno de função - a função na qual se insere retorna "valor"
+
+?(num < 3) : !(3) :(num < 5): !(5) :: !(0) -> estrutura de if em uma 
+única linha (apenas possível se em cada caso a instrução seja única)
+Equivale a:
+    if(num < 3) {
+        return 3;
+    } else if(num < 5) {
+        return 5;
+    } else {
+        return 0;
+    }
+
+& "prototipos.h" -> equivalente a #include "prototipos.h"
+
+& <math.h> -> equivalente a #include<math.h>
+
+!< valor " é o valor." \n > -> imprime "3 é o valor" e pula uma linha (valor=3)
+
+
+ &(num1, num2) &&(4, 5) !(num = 5) ?(num = 3)
+
+funcao(num1, num2) -> chamada de função passando argumentos num1 e num2
+
+
+<fibonacci> : !(num = 0)
+    ?(num < 3) : 
+        !(1)
+    ::
+        !(fibonacci(num - 1) + fibonacci(num - 2))
+
+& "prototipe.h"
+
+<< Classe >> :
+
+    <{}>:
+        !(a = 0)
+        !(b = '')
+        !(c = 0.0)
+    <[]>:
+        
+    <()>:
+        <Classe> : a, b, !(cash = 0.0)
+            ?(cash < 0.0) : cash = 0.0 :(cash > 50.0): cash = 50.0 
+            c = cash
+        <getA> : !(a)
+        <getB> : !(b)
+        <setA> : !(aa = 0)
+            a = aa
+        <setB> : !(bb = 0)
+            b = bb
+        <imprime> : !< "Valor de a: " a \n "Valor de b: " b >
+
