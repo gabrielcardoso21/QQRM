@@ -1,0 +1,3 @@
+flex lexico.l
+bison -dy sintatico.y
+gcc -lfl y.tab.c lex.yy.c -o parser
