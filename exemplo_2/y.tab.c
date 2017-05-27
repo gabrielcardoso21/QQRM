@@ -1,7 +1,7 @@
 #define YY_parse_h_included
 /*#define YY_USE_CLASS 
 */
-/*  A Bison++ parser, made from sintatico.y  */
+/*  A Bison++ parser, made from calc.yacc  */
 
  /* with Bison++ version bison++ Version 1.21.9-1, adapted from GNU bison by coetmeur@icdc.fr
 Maintained by Magnus Ekdahl <magnus@debian.org>
@@ -98,14 +98,20 @@ Maintained by Magnus Ekdahl <magnus@debian.org>
 #define YYBISON 1  
 
  #line 88 "/usr/share/bison++/bison.cc"
-#line 1 "sintatico.y"
+#line 1 "calc.yacc"
 
 #include<stdio.h>
-#define YYSTYPE double
-int yylex();
- void yyerror (char const *s) {
-   fprintf (stderr, "%s\n", s);
- }
+
+int regs[26];
+int base;
+
+
+#line 11 "calc.yacc"
+typedef union { int a; } yy_parse_stype;
+#define YY_parse_STYPE yy_parse_stype
+#ifndef YY_USE_CLASS
+#define YYSTYPE yy_parse_stype
+#endif
 
 #line 88 "/usr/share/bison++/bison.cc"
 /* %{ and %header{ and %union, during decl */
@@ -160,12 +166,6 @@ int yylex();
 /* section apres lecture def, avant lecture grammaire S2 */
 
  #line 134 "/usr/share/bison++/bison.cc"
-#ifndef YY_USE_CLASS
-# ifndef YYSTYPE
-#  define YYSTYPE int
-#  define YYSTYPE_IS_TRIVIAL 1
-# endif
-#endif
 
 #line 134 "/usr/share/bison++/bison.cc"
 /* prefix */
@@ -307,31 +307,10 @@ typedef
 /* TOKEN C */
 
  #line 263 "/usr/share/bison++/bison.cc"
-#define	VRG	258
-#define	ID	259
-#define	NUM	260
-#define	CHAR	261
-#define	STR	262
-#define	DP	263
-#define	QE	264
-#define	NL	265
-#define	MAIS	266
-#define	MENOS	267
-#define	VEZES	268
-#define	DIVID	269
-#define	DECLV	270
-#define	AFUN	271
-#define	FFUN	272
-#define	ACOL	273
-#define	FCOL	274
-#define	APAR	275
-#define	FPAR	276
-#define	ACHA	277
-#define	FCHA	278
-#define	IGUAL	279
-#define	IMPR	280
-#define	LEIA	281
-#define	UMINUS	282
+#define	DIGIT	258
+#define	LETTER	259
+#define	EXIT	260
+#define	UMINUS	261
 
 
 #line 263 "/usr/share/bison++/bison.cc"
@@ -381,30 +360,9 @@ public:
 /* static const int token ... */
 
  #line 307 "/usr/share/bison++/bison.cc"
-static const int VRG;
-static const int ID;
-static const int NUM;
-static const int CHAR;
-static const int STR;
-static const int DP;
-static const int QE;
-static const int NL;
-static const int MAIS;
-static const int MENOS;
-static const int VEZES;
-static const int DIVID;
-static const int DECLV;
-static const int AFUN;
-static const int FFUN;
-static const int ACOL;
-static const int FCOL;
-static const int APAR;
-static const int FPAR;
-static const int ACHA;
-static const int FCHA;
-static const int IGUAL;
-static const int IMPR;
-static const int LEIA;
+static const int DIGIT;
+static const int LETTER;
+static const int EXIT;
 static const int UMINUS;
 
 
@@ -414,31 +372,10 @@ static const int UMINUS;
 enum YY_parse_ENUM_TOKEN { YY_parse_NULL_TOKEN=0
 
  #line 310 "/usr/share/bison++/bison.cc"
-	,VRG=258
-	,ID=259
-	,NUM=260
-	,CHAR=261
-	,STR=262
-	,DP=263
-	,QE=264
-	,NL=265
-	,MAIS=266
-	,MENOS=267
-	,VEZES=268
-	,DIVID=269
-	,DECLV=270
-	,AFUN=271
-	,FFUN=272
-	,ACOL=273
-	,FCOL=274
-	,APAR=275
-	,FPAR=276
-	,ACHA=277
-	,FCHA=278
-	,IGUAL=279
-	,IMPR=280
-	,LEIA=281
-	,UMINUS=282
+	,DIGIT=258
+	,LETTER=259
+	,EXIT=260
+	,UMINUS=261
 
 
 #line 310 "/usr/share/bison++/bison.cc"
@@ -475,31 +412,10 @@ public:
 #if YY_parse_USE_CONST_TOKEN != 0
 
  #line 341 "/usr/share/bison++/bison.cc"
-const int YY_parse_CLASS::VRG=258;
-const int YY_parse_CLASS::ID=259;
-const int YY_parse_CLASS::NUM=260;
-const int YY_parse_CLASS::CHAR=261;
-const int YY_parse_CLASS::STR=262;
-const int YY_parse_CLASS::DP=263;
-const int YY_parse_CLASS::QE=264;
-const int YY_parse_CLASS::NL=265;
-const int YY_parse_CLASS::MAIS=266;
-const int YY_parse_CLASS::MENOS=267;
-const int YY_parse_CLASS::VEZES=268;
-const int YY_parse_CLASS::DIVID=269;
-const int YY_parse_CLASS::DECLV=270;
-const int YY_parse_CLASS::AFUN=271;
-const int YY_parse_CLASS::FFUN=272;
-const int YY_parse_CLASS::ACOL=273;
-const int YY_parse_CLASS::FCOL=274;
-const int YY_parse_CLASS::APAR=275;
-const int YY_parse_CLASS::FPAR=276;
-const int YY_parse_CLASS::ACHA=277;
-const int YY_parse_CLASS::FCHA=278;
-const int YY_parse_CLASS::IGUAL=279;
-const int YY_parse_CLASS::IMPR=280;
-const int YY_parse_CLASS::LEIA=281;
-const int YY_parse_CLASS::UMINUS=282;
+const int YY_parse_CLASS::DIGIT=258;
+const int YY_parse_CLASS::LETTER=259;
+const int YY_parse_CLASS::EXIT=260;
+const int YY_parse_CLASS::UMINUS=261;
 
 
 #line 341 "/usr/share/bison++/bison.cc"
@@ -518,26 +434,26 @@ YY_parse_CONSTRUCTOR_CODE;
  #line 352 "/usr/share/bison++/bison.cc"
 
 
-#define	YYFINAL		23
+#define	YYFINAL		36
 #define	YYFLAG		-32768
-#define	YYNTBASE	29
+#define	YYNTBASE	18
 
-#define YYTRANSLATE(x) ((unsigned)(x) <= 282 ? yytranslate[x] : 31)
+#define YYTRANSLATE(x) ((unsigned)(x) <= 261 ? yytranslate[x] : 22)
 
 static const char yytranslate[] = {     0,
+     2,     2,     2,     2,     2,     2,     2,     2,     2,    14,
+     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+     2,     2,     2,     2,     2,     2,    12,     7,     2,    16,
+    17,    10,     8,     2,     9,     2,    11,     2,     2,     2,
+     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+    15,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-    28,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+     2,     2,     2,     6,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -551,83 +467,93 @@ static const char yytranslate[] = {     0,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     1,     2,     3,     4,     5,
-     6,     7,     8,     9,    10,    11,    12,    13,    14,    15,
-    16,    17,    18,    19,    20,    21,    22,    23,    24,    25,
-    26,    27
+    13
 };
 
 #if YY_parse_DEBUG != 0
 static const short yyprhs[] = {     0,
-     0,     1,     3,     5,     7,    12,    16,    20,    24,    28,
-    32,    35
+     0,     1,     5,     9,    12,    14,    18,    22,    26,    30,
+    34,    38,    42,    46,    50,    53,    55,    57,    59
 };
 
 static const short yyrhs[] = {    -1,
-     9,     0,    28,     0,    10,     0,     9,    30,    10,    29,
-     0,    30,    11,    30,     0,    30,    12,    30,     0,    30,
-    13,    30,     0,    30,    14,    30,     0,    20,    30,    21,
-     0,    12,    30,     0,     5,     0
+    18,    19,    14,     0,    18,     1,    14,     0,     5,    14,
+     0,    20,     0,     4,    15,    20,     0,    16,    20,    17,
+     0,    20,    10,    20,     0,    20,    11,    20,     0,    20,
+    12,    20,     0,    20,     8,    20,     0,    20,     9,    20,
+     0,    20,     7,    20,     0,    20,     6,    20,     0,     9,
+    20,     0,     4,     0,    21,     0,     3,     0,    21,     3,
+     0
 };
 
 #endif
 
 #if (YY_parse_DEBUG != 0) || defined(YY_parse_ERROR_VERBOSE) 
 static const short yyrline[] = { 0,
-    35,    36,    37,    38,    39,    44,    45,    46,    47,    48,
-    49,    50
+    24,    25,    27,    32,    38,    42,    50,    54,    60,    65,
+    70,    75,    80,    85,    90,    96,   102,   106,   110
 };
 
-static const char * const yytname[] = {   "$","error","$illegal.","VRG","ID",
-"NUM","CHAR","STR","DP","QE","NL","MAIS","MENOS","VEZES","DIVID","DECLV","AFUN",
-"FFUN","ACOL","FCOL","APAR","FPAR","ACHA","FCHA","IGUAL","IMPR","LEIA","UMINUS",
-"'3'","comandos","expr",""
+static const char * const yytname[] = {   "$","error","$illegal.","DIGIT","LETTER",
+"EXIT","'|'","'&'","'+'","'-'","'*'","'/'","'%'","UMINUS","'\\n'","'='","'('",
+"')'","list","stat","expr","number",""
 };
 #endif
 
 static const short yyr1[] = {     0,
-    29,    29,    29,    29,    29,    30,    30,    30,    30,    30,
-    30,    30
+    18,    18,    18,    18,    19,    19,    20,    20,    20,    20,
+    20,    20,    20,    20,    20,    20,    20,    21,    21
 };
 
 static const short yyr2[] = {     0,
-     0,     1,     1,     1,     4,     3,     3,     3,     3,     3,
-     2,     1
+     0,     3,     3,     2,     1,     3,     3,     3,     3,     3,
+     3,     3,     3,     3,     2,     1,     1,     1,     2
 };
 
 static const short yydefact[] = {     1,
-     2,     4,     3,    12,     0,     0,     0,    11,     0,     1,
-     0,     0,     0,     0,    10,     5,     6,     7,     8,     9,
-     0,     0,     0
+     0,     0,     4,     0,    18,    16,     0,     0,     0,     5,
+    17,     3,     0,    16,    15,     0,     2,     0,     0,     0,
+     0,     0,     0,     0,    19,     6,     7,    14,    13,    11,
+    12,     8,     9,    10,     0,     0
 };
 
-static const short yydefgoto[] = {    16,
-     7
+static const short yydefgoto[] = {     2,
+     9,    10,    11
 };
 
-static const short yypact[] = {    -9,
-    -3,-32768,-32768,-32768,    -3,    -3,    14,-32768,    -8,    -9,
-    -3,    -3,    -3,    -3,-32768,-32768,    -6,    -6,-32768,-32768,
-    10,    11,-32768
+static const short yypact[] = {     0,
+    -6,    18,-32768,    -5,-32768,     5,    20,    20,    -4,    43,
+     4,-32768,    20,-32768,-32768,    31,-32768,    20,    20,    20,
+    20,    20,    20,    20,-32768,    43,-32768,    49,    54,    -8,
+    -8,-32768,-32768,-32768,    25,-32768
 };
 
-static const short yypgoto[] = {    12,
-     9
+static const short yypgoto[] = {-32768,
+-32768,    -7,-32768
 };
 
 
-#define	YYLAST		28
+#define	YYLAST		66
 
 
-static const short yytable[] = {     1,
-     2,     4,    11,    12,    13,    14,    13,    14,     5,    22,
-    23,    21,    15,     8,     9,     0,     6,     0,     3,    17,
-    18,    19,    20,    10,    11,    12,    13,    14
+static const short yytable[] = {    15,
+    16,    22,    23,    24,     1,    26,    25,     3,    12,    17,
+    28,    29,    30,    31,    32,    33,    34,    35,     4,    13,
+     5,     6,     5,    14,    36,     0,     7,     0,     7,     0,
+     0,     0,     0,     8,     0,     8,    18,    19,    20,    21,
+    22,    23,    24,     0,     0,     0,     0,    27,    18,    19,
+    20,    21,    22,    23,    24,    19,    20,    21,    22,    23,
+    24,    20,    21,    22,    23,    24
 };
 
-static const short yycheck[] = {     9,
-    10,     5,    11,    12,    13,    14,    13,    14,    12,     0,
-     0,     0,    21,     5,     6,    -1,    20,    -1,    28,    11,
-    12,    13,    14,    10,    11,    12,    13,    14
+static const short yycheck[] = {     7,
+     8,    10,    11,    12,     5,    13,     3,    14,    14,    14,
+    18,    19,    20,    21,    22,    23,    24,     0,     1,    15,
+     3,     4,     3,     4,     0,    -1,     9,    -1,     9,    -1,
+    -1,    -1,    -1,    16,    -1,    16,     6,     7,     8,     9,
+    10,    11,    12,    -1,    -1,    -1,    -1,    17,     6,     7,
+     8,     9,    10,    11,    12,     7,     8,     9,    10,    11,
+    12,     8,     9,    10,    11,    12
 };
 
 #line 352 "/usr/share/bison++/bison.cc"
@@ -1123,49 +1049,103 @@ YYLABEL(yyreduce)
 
   switch (yyn) {
 
-case 1:
-#line 35 "sintatico.y"
-{ printf("programa de bosta\n"); ;
-    break;}
-case 2:
-#line 36 "sintatico.y"
-{ printf("só quatro espaços\n"); ;
-    break;}
 case 3:
-#line 37 "sintatico.y"
-{ printf("3, sim\n"); ;
+#line 29 "calc.yacc"
+{
+           yyerrok;
+         ;
     break;}
 case 4:
-#line 38 "sintatico.y"
-{ printf("nova linha\n"); ;
+#line 34 "calc.yacc"
+{
+           yywrap();
+         ;
     break;}
 case 5:
-#line 39 "sintatico.y"
-{ printf("%f fadas\n", yyvsp[0]); ;
+#line 39 "calc.yacc"
+{
+           printf("%d\n",yyvsp[0]);
+         ;
     break;}
 case 6:
-#line 44 "sintatico.y"
-{ yyval = yyvsp[-2] + yyvsp[0]; ;
+#line 44 "calc.yacc"
+{
+           regs[yyvsp[-2].a] = yyvsp[0].a;
+         ;
     break;}
 case 7:
-#line 45 "sintatico.y"
-{ yyval = yyvsp[-2] - yyvsp[0]; ;
+#line 51 "calc.yacc"
+{
+           yyval = yyvsp[-1];
+         ;
     break;}
 case 8:
-#line 46 "sintatico.y"
-{ yyval = yyvsp[-2] * yyvsp[0]; ;
+#line 56 "calc.yacc"
+{
+
+           yyval.a = yyvsp[-2].a * yyvsp[0].a;
+         ;
     break;}
 case 9:
-#line 47 "sintatico.y"
-{ yyval = yyvsp[-2] / yyvsp[0]; ;
+#line 62 "calc.yacc"
+{
+           yyval.a = yyvsp[-2].a / yyvsp[0].a;
+         ;
     break;}
 case 10:
-#line 48 "sintatico.y"
-{ yyval = yyvsp[-1]; ;
+#line 67 "calc.yacc"
+{
+           yyval.a = yyvsp[-2].a % yyvsp[0].a;
+         ;
     break;}
 case 11:
-#line 49 "sintatico.y"
-{ yyval = - yyvsp[0]; ;
+#line 72 "calc.yacc"
+{
+           yyval.a = yyvsp[-2].a + yyvsp[0].a;
+         ;
+    break;}
+case 12:
+#line 77 "calc.yacc"
+{
+           yyval.a = yyvsp[-2].a - yyvsp[0].a;
+         ;
+    break;}
+case 13:
+#line 82 "calc.yacc"
+{
+           yyval.a = yyvsp[-2].a & yyvsp[0].a;
+         ;
+    break;}
+case 14:
+#line 87 "calc.yacc"
+{
+           yyval.a = yyvsp[-2].a | yyvsp[0].a;
+         ;
+    break;}
+case 15:
+#line 93 "calc.yacc"
+{
+           yyval.a = -yyvsp[0].a;
+         ;
+    break;}
+case 16:
+#line 98 "calc.yacc"
+{
+           yyval.a = regs[yyvsp[0].a];
+         ;
+    break;}
+case 18:
+#line 107 "calc.yacc"
+{
+           yyval = yyvsp[0];
+           base = (yyvsp[0].a==0) ? 8 : 10;
+         ;
+    break;}
+case 19:
+#line 112 "calc.yacc"
+{
+           yyval.a = base * yyvsp[-1].a + yyvsp[0].a;
+         ;
     break;}
 }
 
@@ -1371,7 +1351,24 @@ YYLABEL(yyerrhandle)
 /* END */
 
  #line 1038 "/usr/share/bison++/bison.cc"
-#line 53 "sintatico.y"
+#line 117 "calc.yacc"
 
+int main(int argc, char *argv[])
+{
+ FILE *yyin = fopen(argv[1], "r");
+ yylex();
+ yyparse();
+ fclose(yyin);
+ return(0);
+}
 
-YYSTYPE yylval;
+yyerror(s)
+char *s;
+{
+  fprintf(stderr, "%s\n",s);
+}
+
+yywrap()
+{
+  return(1);
+}

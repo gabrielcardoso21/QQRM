@@ -1,0 +1,6 @@
+yacc -d text.yacc
+ls
+lex text.lex
+ls
+cc y.tab.c lex.yy.c
+ls

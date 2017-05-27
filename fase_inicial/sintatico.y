@@ -32,9 +32,11 @@ atrib: ID IGUAL expr
 
 */
 
-comandos:
-        | NL 
-        | QE expr NL comandos { printf("%f\n", $4); }
+comandos: { printf("programa de bosta\n"); }
+        | QE { printf("só quatro espaços\n"); }
+        | '3' { printf("3, sim\n"); }
+        | NL { printf("nova linha\n"); }
+        | QE expr NL comandos { printf("%f fadas\n", $4); }
         ;
 
 /*comando: expr ; */
@@ -48,3 +50,6 @@ expr: expr MAIS expr { $$ = $1 + $3; }
     | NUM
     ;
 
+%%
+
+YYSTYPE yylval;

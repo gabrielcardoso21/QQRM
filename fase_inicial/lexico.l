@@ -2,6 +2,8 @@
 %{
     #include<stdio.h>
     #include<stdlib.h>
+    #define YYSTYPE double
+    extern YYSTYPE yylval;
     #include "y.tab.h"
 %}
 
