@@ -1,4 +1,5 @@
 %{
+#include <stdio.h>
 #include <stdlib.h>
 #include "calc3.h"
 #include "y.tab.h"
@@ -14,7 +15,14 @@ char *s;
 <STRING>\\n { *s++ = '\n'; }
 <STRING>\\t { *s++ = '\t'; }
 <STRING>\\\" { *s++ = '\"'; }
-<STRING>\" { *s = 0; BEGIN 0; printf("found '%s'\n", buf); }
+<STRING>\" { 
+            *s = 0; 
+            BEGIN 0; 
+            printf("found '%s'\n", buf); 
+            yylval.string=malloc(yyleng);
+            sprintf(yylval.string,"%s",yytext); 
+            return STR;
+}
 
 <STRING>\n { printf("invalid string"); exit(1); }
 <STRING>. { *s++ = *yytext; }
