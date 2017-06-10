@@ -1,0 +1,12 @@
+//20 primeiros numeros da sequencia de fibonacci:
+n = 20;
+p = 0;
+s = 1;
+i = 2;
+|( i < n) {
+    !< s >;
+    i = i + 1;
+    x = p + s;
+    p = s;
+    s = x;
+}

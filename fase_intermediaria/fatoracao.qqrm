@@ -1,0 +1,11 @@
+//fatoracao de um numero:
+n = 2500;
+x = 1;
+|( x <= n ) {
+    ?( (n - ((n / x) * x)) == 0 ) {
+        !< x >;
+        n = n / x;
+        x = 1;
+    }
+    x = x + 1;
+}

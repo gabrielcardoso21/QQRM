@@ -1,0 +1,93 @@
+Linguagem de programação QQRM
+
+O conceito básico dessa linguagem é ter uma linguagem de programação sem 
+palavras reservadas. No lugar das palavras reservadas seriam usados combinações 
+de símbolos. Em sua primeira versão (0.1), a linguagem suporta apenas o tipo 
+de dado inteiro.
+
+Comandos:
+
+    Atribuição:
+
+        x = 3;
+
+    Condicional:
+
+        ?( x == 3 ) {
+            x = x + 1;
+        }
+
+    Repetição:
+
+        |( x > 3 ) {
+            x = x + 1;
+        }
+
+    Saída (impressão):
+
+        !< x >;
+
+
+Operadores:
+
+    Aritméticos:
+
+        Soma:           x = y + 2;
+        Subtração:      x = y - 4;
+        Multiplicação:  x = x * 3;
+        Divisão:        x = 7 / y;
+
+    Relacionais:
+
+        Igual:          
+            ?(x == 5) {
+                !< x >;
+            }
+        Maior ou igual:
+            ?(x >= 5) {
+                !< x >;
+            }
+        Menor ou igual:
+            ?(x <= 5) {
+                !< x >;
+            }
+        Maior:
+            ?(x > 5) {
+                !< x >;
+            }
+        Menor:
+            ?(x < 5) {
+                !< x >;
+            }
+        Diferente:
+            ?(x != 5) {
+                !< x >;
+            }
+
+Variáveis:
+
+    Todas as variáveis consistem de uma única letra.
+
+Interpretador:
+
+    Linux:
+
+    A compilação do interpretador se faz a partir da execução do arquivo make:
+
+        ./make
+
+    A execução de um programa se faz pelo executável calc3_i:
+
+        ./calc3_i < exemplo.qqrm
+
+    Windows:
+
+    A compilação do interpretador se faz pelos seguintes comandos:
+
+        yacc -d calc3.yacc
+        lex calc3.lex
+        cc lex.yy.c y.tab.c interpretador.c -o calc3_i.exe
+
+    A execução de um programa se faz pelo executável calc3_i:
+
+        calc3_i < exemplo.qqrm
