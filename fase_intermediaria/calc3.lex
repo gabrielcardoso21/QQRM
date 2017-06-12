@@ -23,7 +23,7 @@ void yyerror(char *);
                 return INTEGER;
             }
 
-[-()<>=+*/;{}.] {
+[-()<>=+*/\n{}.] {
                 return *yytext;
             }
 
@@ -37,7 +37,7 @@ void yyerror(char *);
 "!<" return PRINT;
 "?<" return READ;
 
-[ \t\n]+ ;
+[ \t]+ ;
 
 "//".* ;
 

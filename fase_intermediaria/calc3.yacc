@@ -47,11 +47,11 @@ function:
     ;
 
 stmt:
-    ';' { $$ = opr(';', 2, NULL, NULL); }
-    | expr ';' { $$ = $1; }
-    | PRINT expr '>' ';' { $$ = opr(PRINT, 1, $2); }
-    | READ expr '>' ';' { $$ = opr(READ, 1, $2); }
-    | VARIABLE '=' expr ';' { $$ = opr('=', 2, id($1), $3); }
+    '\n' { $$ = opr(';', 2, NULL, NULL); }
+    | expr '\n' { $$ = $1; }
+    | PRINT expr '>' '\n' { $$ = opr(PRINT, 1, $2); }
+    | READ expr '>' '\n' { $$ = opr(READ, 1, $2); }
+    | VARIABLE '=' expr '\n' { $$ = opr('=', 2, id($1), $3); }
     | WHILE '(' expr ')' stmt { $$ = opr(WHILE, 2, $3, $5); }
     | IF '(' expr ')' stmt %prec IFX { $$ = opr(IF, 2, $3, $5); }
     | IF '(' expr ')' stmt ELSE stmt { $$ = opr(IF, 3, $3, $5, $7); }

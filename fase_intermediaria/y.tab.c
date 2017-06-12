@@ -491,12 +491,12 @@ YY_parse_CONSTRUCTOR_CODE;
 #define YYTRANSLATE(x) ((unsigned)(x) <= 270 ? yytranslate[x] : 33)
 
 static const char yytranslate[] = {     0,
-     2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+     2,     2,     2,     2,     2,     2,     2,     2,     2,    22,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,    24,
     25,    19,    17,     2,    18,     2,    20,     2,     2,     2,
-     2,     2,     2,     2,     2,     2,     2,     2,    22,    16,
+     2,     2,     2,     2,     2,     2,     2,     2,     2,    16,
     23,    15,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -552,8 +552,8 @@ static const short yyrline[] = { 0,
 
 static const char * const yytname[] = {   "$","error","$illegal.","INTEGER",
 "VARIABLE","WHILE","IF","PRINT","READ","IFX","ELSE","GE","LE","EQ","NE","'>'",
-"'<'","'+'","'-'","'*'","'/'","UMINUS","';'","'='","'('","')'","'{'","'}'","program",
-"function","stmt","stmt_list","expr",""
+"'<'","'+'","'-'","'*'","'/'","UMINUS","'\\n'","'='","'('","')'","'{'","'}'",
+"program","function","stmt","stmt_list","expr",""
 };
 #endif
 
